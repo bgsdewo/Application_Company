@@ -1,1 +1,3 @@
 //di video pertama kita menginstal node js
+//di video kedua kita menginstal schand ui pada folder my-app-job dan my-app-dashboard-job
+// serta menginstal  component button
