@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Epilogue } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/layouts/Sidebar";
+import Header from "@/components/layouts/Header";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const epilogue = Epilogue({
+  subsets: ["latin"],
+  variable: "--font-epilogue",
+  display: "swap",
+  preload: true,
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -26,9 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${epilogue.variable} ${epilogue.variable} antialiased`}>
         <main>
           <div className="border-t">
             <div className="bg-background">
@@ -36,9 +32,10 @@ export default function RootLayout({
                 <div className="hidden lg:block w-[18%]">
                   <Sidebar />
                 </div>
+
                 <div className="col-span-3 overflow-auto lg:col-span-5 lg:border-l w-[82%]">
                   <div className="px-6 py-6 lg:px-8">
-                    <div>Header</div>
+                    <Header />
                     {children}
                   </div>
                 </div>
